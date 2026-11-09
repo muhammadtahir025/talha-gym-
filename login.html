@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | TALHA GOLD GYM</title>
+    <meta name="description" content="Member and staff login page for TALHA GOLD GYM. Frontend validation only for the next backend phase." />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="index.html" class="brand" aria-label="Talha Gold Gym home">
+          <span class="brand-mark brand-mark--logo"><img src="images/TGG-LOGO.jpg" alt="Talha Gold Gym Logo" class="brand-logo-img" /></span>
+          <span class="brand-copy">
+            <strong>TALHA GOLD GYM</strong>
+            <span>Strength • Discipline • Community</span>
+          </span>
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="membership.html">Membership</a>
+          <a href="trainers.html">Trainers</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html">Contact</a>
+          <a href="login.html" class="active">Login</a>
+        </nav>
+        <div class="header-actions">
+          <a href="membership.html#online-slip-section" class="btn btn--slip">⚡ Online Slip</a>
+          <a href="membership.html#membership-request" class="btn btn--primary">Join Now</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="login-shell">
+      <div class="login-panel reveal">
+        <div class="brand" style="justify-content: center; margin-bottom: 18px;">
+          <span class="brand-mark brand-mark--logo"><img src="images/TGG-LOGO.jpg" alt="Talha Gold Gym Logo" class="brand-logo-img" /></span>
+          <span class="brand-copy">
+            <strong>TALHA GOLD GYM</strong>
+            <span>Member access</span>
+          </span>
+        </div>
+
+        <h1 style="font-size: clamp(2rem, 4vw, 3rem);">TALHA GOLD GYM</h1>
+        <p class="login-subtitle">MEMBER & STAFF LOGIN</p>
+
+        <form id="login-form" class="login-grid" data-firebase-auth="true" novalidate>
+          <div class="form-field">
+            <label for="login-email">Email</label>
+            <input id="login-email" type="email" name="email" placeholder="Enter your email address" autocomplete="email" required />
+          </div>
+          <div class="form-field">
+            <label for="login-password">Password</label>
+            <input id="login-password" type="password" name="password" placeholder="Enter your password" autocomplete="current-password" required />
+          </div>
+          <div class="form-meta">
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" name="remember" />
+              Remember me
+            </label>
+            <a href="#" id="forgot-password">Forgot Password?</a>
+          </div>
+          <button type="submit" class="btn btn--primary" style="width: 100%; margin-top: 8px;">LOGIN</button>
+          <div class="form-status" aria-live="polite"></div>
+        </form>
+
+        <div class="role-list">
+          <span>SUPER ADMIN</span>
+          <span>MANAGER</span>
+          <span>RECEPTIONIST</span>
+          <span>TRAINER</span>
+          <span>MEMBER</span>
+        </div>
+
+        <div class="note-banner" style="margin-top: 22px;">Secure member and staff access.</div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="brand footer-brand">
+              <span class="brand-mark brand-mark--logo"><img src="images/TGG-LOGO.jpg" alt="Talha Gold Gym Logo" class="brand-logo-img" /></span>
+              <span class="brand-copy"><strong>TALHA GOLD GYM</strong><span>Karachi • Strength • Discipline</span></span>
+            </div>
+            <p>Jama Hari Masjid, Kumbhar Wara Road, Lyari, Karachi, Pakistan</p>
+          </div>
+          <div>
+            <h3 style="font-size: 1.1rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-bright);">Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="membership.html">Membership</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="font-size: 1.1rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-bright);">Explore</h3>
+            <ul class="footer-links">
+              <li><a href="trainers.html">Trainers</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="login.html">Login</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="font-size: 1.1rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-bright);">Connect</h3>
+            <ul class="footer-social">
+              <li><a href="https://wa.me/923703418826" target="_blank" rel="noopener">WhatsApp (0370-3418826)</a></li>
+              <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+              <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© <span data-year></span> TALHA GOLD GYM. All Rights Reserved.</span>
+          <span>Premium fitness club • Lyari, Karachi</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script type="module" src="js/auth.js"></script>
+  </body>
+</html>

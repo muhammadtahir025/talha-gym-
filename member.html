@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="Private member portal for TALHA GOLD GYM." />
+    <title>Member Portal | TALHA GOLD GYM</title>
+    <link rel="stylesheet" href="css/member.css" />
+  </head>
+  <body class="member-body">
+    <main class="member-gate" id="member-gate" aria-live="polite">
+      <div class="gate-card"><span class="member-logo">TGG</span><h1>MEMBER PORTAL</h1><p id="member-gate-message">Verifying your account...</p></div>
+    </main>
+    <div class="member-app" id="member-app" hidden>
+      <header class="member-header">
+        <a class="member-brand" href="index.html"><span class="member-logo">TGG</span><span><strong>TALHA GOLD GYM</strong><small>MEMBER PORTAL</small></span></a>
+        <div class="member-header-actions">
+          <button class="member-notification-btn" id="member-notification-toggle" type="button" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4" /></svg>
+            <span class="member-badge" id="member-unread-badge" hidden>0</span>
+          </button>
+          <button class="member-signout" type="button" id="member-signout">SIGN OUT</button>
+        </div>
+      </header>
+      <main class="member-content">
+        <section class="member-intro"><div><span class="member-kicker">YOUR ACCOUNT</span><h1 id="member-name">MEMBER PROFILE</h1><p id="member-id"></p></div><div class="member-status" id="member-status">LOADING</div></section>
+        <section class="member-overview" id="member-overview"></section>
+        <section class="member-section"><div class="section-heading"><span>01</span><h2>MEMBERSHIP</h2></div><div class="member-membership" id="member-membership"></div></section>
+        <section class="member-section"><div class="section-heading"><span>02</span><h2>PAYMENT HISTORY</h2></div><div class="member-table-wrap" id="member-payments"></div></section>
+        <section class="member-section"><div class="section-heading"><span>03</span><h2>MEMBERSHIP HISTORY</h2></div><div class="member-table-wrap" id="member-history"></div></section>
+        <section class="member-section"><div class="section-heading"><span>04</span><h2>ATTENDANCE</h2></div><div class="member-table-wrap" id="member-attendance"></div></section>
+        <section class="member-section" id="member-notifications-section">
+          <div class="section-heading-row">
+            <div class="section-heading"><span>05</span><h2>NOTIFICATIONS</h2></div>
+            <div class="member-notif-actions">
+              <button type="button" class="member-tab active" data-notif-filter="all">ALL</button>
+              <button type="button" class="member-tab" data-notif-filter="unread">UNREAD</button>
+              <button type="button" class="member-tab" data-notif-filter="read">READ</button>
+              <button type="button" class="member-action-btn" id="member-mark-all-read">MARK ALL READ</button>
+            </div>
+          </div>
+          <div class="member-notifications-list" id="member-notifications-list"></div>
+        </section>
+      </main>
+      <footer class="member-footer">TALHA GOLD GYM <span>Jama Hari Masjid, Kumbhar Wara Road, Lyari, Karachi, Pakistan</span></footer>
+    </div>
+    <dialog class="member-dialog" id="member-dialog"><div id="member-dialog-body"></div><button class="member-dialog-close" id="member-dialog-close" type="button">CLOSE</button></dialog>
+    <script type="module" src="js/member-portal.js"></script>
+  </body>
+</html>

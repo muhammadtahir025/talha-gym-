@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Membership & Online Slip | TALHA GOLD GYM • Lyari, Karachi</title>
+    <meta name="description" content="Official membership plans and online admission slip generator for TALHA GOLD GYM in Lyari, Karachi. Generate, print, or download your gym slip instantly." />
+    <link rel="icon" type="image/jpeg" href="images/TGG-LOGO.jpg" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <!-- jsPDF for instant PDF slip downloads -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js" referrerpolicy="no-referrer"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="index.html" class="brand" aria-label="Talha Gold Gym home">
+          <span class="brand-mark brand-mark--logo">
+            <img src="images/TGG-LOGO.jpg" alt="Talha Gold Gym Logo" class="brand-logo-img" />
+          </span>
+          <span class="brand-copy">
+            <strong>TALHA GOLD GYM</strong>
+            <span>Strength • Discipline • Community</span>
+          </span>
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="membership.html" class="active">Membership</a>
+          <a href="trainers.html">Trainers</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html">Contact</a>
+          <a href="login.html">Login</a>
+        </nav>
+        <div class="header-actions">
+          <a href="#membership-request" class="btn btn--primary">Join Now (آن لائن داخلہ)</a>
+          <a href="#online-slip-section" class="btn btn--slip">⚡ Online Slip</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-body">
+      <section class="page-hero">
+        <div class="page-hero-content reveal">
+          <span class="eyebrow">Membership & Admission Slip • آن لائن سلپ</span>
+          <h1 class="page-heading">MEMBERSHIP PLANS & ONLINE SLIP</h1>
+          <p class="lead">Select your training plan, pay your fees online (via JazzCash, Easypaisa, or Raast), and generate your official printable <strong>TALHA GOLD GYM Admission Slip</strong> with QR verification & official stamp instantly.</p>
+          <div style="margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="#membership-request" class="btn btn--slip-hero">⚡ Join Now & Get Online Slip (آن لائن داخلہ)</a>
+            <a href="#payment-methods-section" class="btn btn--secondary">💳 Official Online Payment Accounts</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- MEMBERSHIP PLANS & SLIP GENERATOR -->
+      <section class="section" id="online-slip-section">
+        <div class="container reveal">
+          <div class="membership-layout">
+            <!-- Plans Grid on the Left -->
+            <div>
+              <div style="margin-bottom: 22px;">
+                <span class="eyebrow">Choose Your Training Package</span>
+                <h2 class="section-heading" style="font-size: clamp(1.8rem, 2.5vw, 2.4rem); margin-top: 8px;">Available Membership Plans</h2>
+              </div>
+              <div class="membership-grid" id="public-membership-plans" style="grid-template-columns: repeat(2, minmax(0,1fr));" aria-live="polite">
+                <!-- 1. Monthly Plan -->
+                <article class="membership-plan">
+                  <div class="membership-plan-thumb">
+                    <img src="images/gym-dumbbells.jpg" alt="Monthly Membership" loading="lazy" />
+                    <div class="membership-plan-badge">1 MONTH</div>
+                  </div>
+                  <div class="membership-plan-body">
+                    <h3>Monthly Membership</h3>
+                    <div class="plan-price">PKR 1,500</div>
+                    <div class="plan-detail">Duration: 1 month</div>
+                    <p style="margin-bottom:14px; font-size:0.92rem; color:rgba(245,245,245,0.78);">Flexible month-to-month access for consistent strength training and conditioning.</p>
+                    <ul class="plan-features">
+                      <li>Full gym & equipment access</li>
+                      <li>Cardio & strength training floor</li>
+                      <li>Locker room & changing facilities</li>
+                      <li>Trainer floor guidance</li>
+                    </ul>
+                    <div style="margin-top:auto;padding-top:22px">
+                      <a href="#membership-request" class="btn btn--primary" data-select-plan="plan-monthly">Join & Get Online Slip</a>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- 2. Quarterly Plan -->
+                <article class="membership-plan">
+                  <div class="membership-plan-thumb">
+                    <img src="images/gym-cardio.jpg" alt="Quarterly Membership" loading="lazy" />
+                    <div class="membership-plan-badge">3 MONTHS</div>
+                  </div>
+                  <div class="membership-plan-body">
+                    <h3>Quarterly Membership</h3>
+                    <div class="plan-price">PKR 4,500</div>
+                    <div class="plan-detail">Duration: 3 months</div>
+                    <p style="margin-bottom:14px; font-size:0.92rem; color:rgba(245,245,245,0.78);">3-month commitment for members focused on visible transformation and routine discipline.</p>
+                    <ul class="plan-features">
+                      <li>Full gym & equipment access</li>
+                      <li>Progress assessment & tracking</li>
+                      <li>Personalized workout tips</li>
+                      <li>Diet & routine direction</li>
+                    </ul>
+                    <div style="margin-top:auto;padding-top:22px">
+                      <a href="#membership-request" class="btn btn--primary" data-select-plan="plan-quarterly">Join & Get Online Slip</a>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- 3. Half-Year Plan -->
+                <article class="membership-plan">
+                  <div class="membership-plan-thumb">
+                    <img src="images/WhatsApp Image 2026-10-05 at 1.32.38 PM.jpeg" alt="Half-Year Plan" loading="lazy" style="object-position: center 25%;" />
+                    <div class="membership-plan-badge">6 MONTHS</div>
+                  </div>
+                  <div class="membership-plan-body">
+                    <h3>Half-Year Plan</h3>
+                    <div class="plan-price">PKR 9,000</div>
+                    <div class="plan-detail">Duration: 6 months</div>
+                    <p style="margin-bottom:14px; font-size:0.92rem; color:rgba(245,245,245,0.78);">6 months of dedicated training with coaching guidance and performance tracking.</p>
+                    <ul class="plan-features">
+                      <li>Full gym & equipment access</li>
+                      <li>Body composition tracking</li>
+                      <li>Coaching support & form check</li>
+                      <li>Priority time slot access</li>
+                    </ul>
+                    <div style="margin-top:auto;padding-top:22px">
+                      <a href="#membership-request" class="btn btn--primary" data-select-plan="plan-6months">Join & Get Online Slip</a>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- 4. Annual Gold Plan -->
+                <article class="membership-plan is-featured">
+                  <div class="membership-plan-thumb">
+                    <img src="images/gym-functional.jpg" alt="Annual Gold Membership" loading="lazy" />
+                    <div class="membership-plan-badge">👑 VIP ANNUAL</div>
+                  </div>
+                  <div class="membership-plan-body">
+                    <h3>Annual Gold Membership</h3>
+                    <div class="plan-price">PKR 20,000</div>
+                    <div class="plan-detail">Duration: 12 months</div>
+                    <p style="margin-bottom:14px; font-size:0.92rem; color:rgba(245,245,245,0.78);">Our most popular long-term value for serious athletes and dedicated fitness members.</p>
+                    <ul class="plan-features">
+                      <li>All-access pass all year</li>
+                      <li>VIP coaching consultations</li>
+                      <li>Complete progress & diet guidance</li>
+                      <li>Member perk discount & guest pass</li>
+                    </ul>
+                    <div style="margin-top:auto;padding-top:22px">
+                      <a href="#membership-request" class="btn btn--primary" data-select-plan="plan-yearly">Join & Get Online Slip</a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <!-- Online Slip Generation & Lookup Panel on the Right -->
+            <div class="membership-form-panel" id="membership-request">
+              <div style="display: flex; align-items: center; gap: 16px; border-bottom: 1.5px solid rgba(212, 175, 55, 0.25); padding-bottom: 18px; margin-bottom: 20px;">
+                <img src="images/TGG-LOGO.jpg" alt="Talha Gold Gym Official Seal" style="width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--gold-bright); object-fit: cover; box-shadow: 0 0 16px rgba(212,175,55,0.35); flex-shrink: 0;" />
+                <div>
+                  <span class="eyebrow" style="color: var(--gold-bright);">Official Gym Registration • آن لائن داخلہ سلپ</span>
+                  <h2 class="section-heading" style="font-size: clamp(1.4rem, 2.2vw, 1.9rem); margin-top: 4px;">Get Your Online Admission Slip</h2>
+                  <p style="font-size: 0.84rem; color: rgba(245,245,245,0.78); margin-top: 4px;">Fill in your details to immediately generate your verified, print-ready membership voucher.</p>
+                </div>
+              </div>
+
+              <!-- Promo Ribbon -->
+              <div style="background: rgba(212,175,55,0.12); border: 1px solid rgba(212,175,55,0.35); padding: 10px 14px; border-radius: 8px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                <span style="font-size: 0.82rem; font-weight: 700; color: var(--gold-bright);">🎉 LIMITED PROMO: Registration Fee Waived!</span>
+                <span style="font-size: 0.75rem; background: #2e7d32; color: #fff; padding: 2px 8px; border-radius: 4px; font-weight: 800;">100% FREE</span>
+              </div>
+
+              <form id="membership-form" class="form-grid" novalidate>
+                <div class="form-row">
+                  <div class="form-field">
+                    <label for="member-name">Full Name / ممبر کا پورا نام <span style="color:var(--gold-bright);">*</span></label>
+                    <input id="member-name" name="name" type="text" placeholder="e.g. Muhammad Ali" required />
+                  </div>
+                  <div class="form-field">
+                    <label for="member-phone">Phone / WhatsApp نمبر <span style="color:var(--gold-bright);">*</span></label>
+                    <input id="member-phone" name="phone" type="tel" placeholder="e.g. 0370 3418826 / 0322 3550180" required />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-field">
+                    <label for="member-cnic">CNIC / B-Form (Optional)</label>
+                    <input id="member-cnic" name="cnic" type="text" placeholder="e.g. 42301-xxxxxxx-x" />
+                  </div>
+                  <div class="form-field">
+                    <label for="member-shift">Preferred Workout Shift / وقت</label>
+                    <select id="member-shift" name="shift">
+                      <option value="Evening Shift (4:00 PM – 11:00 PM)">Evening Shift (4:00 PM – 11:00 PM)</option>
+                      <option value="Morning Shift (6:00 AM – 12:00 PM)">Morning Shift (6:00 AM – 12:00 PM)</option>
+                      <option value="Full Day All-Access Pass">Full Day All-Access Pass (Anytime)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="member-plan">Selected Membership Plan <span style="color:var(--gold-bright);">*</span></label>
+                  <select id="member-plan" name="plan" required>
+                    <option value="">Select a membership plan</option>
+                    <option value="plan-monthly" data-price="2500" data-months="1">Monthly Membership — PKR 2,500</option>
+                    <option value="plan-quarterly" data-price="6500" data-months="3">Quarterly Membership — PKR 6,500</option>
+                    <option value="plan-6months" data-price="11500" data-months="6">Half-Year Plan — PKR 11,500</option>
+                    <option value="plan-yearly" data-price="20000" data-months="12">Annual Gold Membership — PKR 20,000</option>
+                  </select>
+                </div>
+
+                <div class="form-field">
+                  <label for="member-message">Training Goals / Special Note (Optional)</label>
+                  <textarea id="member-message" name="message" placeholder="e.g. Weight loss, bodybuilding, strength conditioning, beginner training..."></textarea>
+                </div>
+
+                
+                <!-- ONLINE PAYMENT / PAYMENT METHOD SELECTION -->
+                <div class="online-payment-box" id="payment-selection-box">
+                  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                    <label style="font-weight: 800; color: var(--gold-bright); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.08em; display: flex; align-items: center; gap: 8px;">
+                      <span>💳 Fee Payment Method / فیس ادائیگی کا طریقہ</span>
+                      <span style="color:var(--gold-bright);">*</span>
+                    </label>
+                    <span style="font-size: 0.72rem; background: rgba(46,125,50,0.22); color: #81c784; padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(46,125,50,0.5); font-weight: 700;">INSTANT VERIFICATION</span>
+                  </div>
+
+                  <!-- Radio Options -->
+                  <div class="payment-type-selector">
+                    <label class="payment-radio-label active" id="payment-online-opt">
+                      <input type="radio" name="paymentType" value="online" checked style="accent-color: var(--gold-bright);" />
+                      <span>⚡ Pay Online (JazzCash / Easypaisa / Raast)</span>
+                    </label>
+                    <label class="payment-radio-label" id="payment-cash-opt">
+                      <input type="radio" name="paymentType" value="cash" style="accent-color: var(--gold-bright);" />
+                      <span>🏢 Pay Cash at Gym Counter</span>
+                    </label>
+                  </div>
+
+                  <!-- Online Accounts Details Panel -->
+                  <div id="online-accounts-panel">
+                    <p style="font-size: 0.82rem; color: rgba(245,245,245,0.85); margin-bottom: 10px;">
+                      Please transfer the membership plan fee to any of our official accounts below and enter your <strong>Transaction ID (TID)</strong>:
+                    </p>
+
+                    <div class="payment-accounts-grid">
+                      <!-- JazzCash -->
+                      <div class="payment-account-tile">
+                        <div class="account-tile-header">
+                          <span class="account-type-badge jazzcash">● JazzCash</span>
+                          <button type="button" class="btn-copy-account" data-copy="03703418826">Copy</button>
+                        </div>
+                        <span class="account-number-text">0370-3418826</span>
+                        <div class="account-title-text">Title: TALHA GOLD GYM</div>
+                      </div>
+
+                      <!-- Easypaisa -->
+                      <div class="payment-account-tile">
+                        <div class="account-tile-header">
+                          <span class="account-type-badge easypaisa">● Easypaisa</span>
+                          <button type="button" class="btn-copy-account" data-copy="03703418826">Copy</button>
+                        </div>
+                        <span class="account-number-text">0370-3418826</span>
+                        <div class="account-title-text">Title: TALHA GOLD GYM</div>
+                      </div>
+
+                      <!-- Raast / Bank -->
+                      <div class="payment-account-tile">
+                        <div class="account-tile-header">
+                          <span class="account-type-badge raast">● Raast (Any Bank)</span>
+                          <button type="button" class="btn-copy-account" data-copy="03703418826">Copy</button>
+                        </div>
+                        <span class="account-number-text">0370-3418826</span>
+                        <div class="account-title-text">Raast ID / Title: TALHA GOLD GYM</div>
+                      </div>
+                    </div>
+
+                    <div style="font-size: 0.74rem; color: #aaa; text-align: right; margin-bottom: 12px;">
+                      Alternate Account / Helpline: <strong style="color: #fff;">0322-3550180</strong>
+                    </div>
+
+                    <div class="form-row">
+                      <div class="form-field">
+                        <label for="member-payment-mode">Paid Through / ادائیگی کا ذریعہ <span style="color:var(--gold-bright);">*</span></label>
+                        <select id="member-payment-mode" name="paymentMode">
+                          <option value="JazzCash">JazzCash (0370-3418826)</option>
+                          <option value="Easypaisa">Easypaisa (0370-3418826)</option>
+                          <option value="Raast / Bank Transfer">Raast / All Bank Apps</option>
+                          <option value="SadaPay / NayaPay">SadaPay / NayaPay</option>
+                        </select>
+                      </div>
+                      <div class="form-field">
+                        <label for="member-tid">Transaction ID (TID) / رسید نمبر <span style="color:var(--gold-bright);">*</span></label>
+                        <input id="member-tid" name="tid" type="text" placeholder="e.g. 02938491823" />
+                      </div>
+                    </div>
+
+                    <div class="payment-guidance">
+                      💡 <strong>Easy Steps:</strong> Apne JazzCash/Easypaisa/Bank app se fees bhejain, Transaction ID (TID) yahan enter karain aur Online Slip generate karain. Slip par aapka TID print hoga aur WhatsApp par direct confirm kar sakeingay!
+                    </div>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn--slip-hero" style="width: 100%; padding: 14px; font-size: 0.95rem; justify-content: center;">
+                  ⚡ GENERATE OFFICIAL ONLINE SLIP (آن لائن داخلہ سلپ بنائیں)
+                </button>
+                <div class="form-status" aria-live="polite"></div>
+              </form>
+
+              <!-- Lookup Existing Slip Panel -->
+              <div id="lookup-slip-panel" style="margin-top: 36px; padding-top: 24px; border-top: 1.5px dashed rgba(212, 175, 55, 0.3);">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                  <strong style="color: var(--white); font-size: 0.92rem; letter-spacing: 0.08em; text-transform: uppercase;">Already Registered? Reprint Slip</strong>
+                  <span style="font-size: 0.75rem; color: var(--gold-bright);">آن لائن سلپ تلاش کریں</span>
+                </div>
+                <form id="lookup-slip-form" style="display: flex; gap: 8px;">
+                  <input type="text" id="lookup-slip-query" placeholder="Enter Mobile Number or Slip ID" style="flex: 1; padding: 10px 14px; background: rgba(0,0,0,0.5); border: 1px solid rgba(212,175,55,0.3); border-radius: 8px; color: #fff; font-size: 0.88rem;" />
+                  <button type="submit" class="btn btn--secondary" style="padding: 10px 18px; white-space: nowrap; font-size: 0.82rem;">Search Slip</button>
+                </form>
+                <div id="lookup-slip-result" aria-live="polite"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT EVERY MEMBERSHIP INCLUDES (CORRECTLY SIZED & PROPORTIONED IMAGES) -->
+      <section class="section" style="background: rgba(255,255,255,0.01);">
+        <div class="container reveal">
+          <div class="section-header">
+            <span class="eyebrow">Member privileges</span>
+            <h2 class="section-heading">WHAT EVERY MEMBERSHIP INCLUDES</h2>
+          </div>
+
+          <div class="gallery-grid" style="grid-template-columns: repeat(4, minmax(0, 1fr));">
+            <div class="gallery-item" style="height: 260px;">
+              <img src="images/gym-dumbbells.jpg" alt="Free Weights Zone" loading="lazy" style="object-position: center center;" />
+              <div class="slide-caption" style="opacity: 1; padding: 16px 14px;"><span>Free Weights & Dumbbells Floor</span></div>
+            </div>
+            <div class="gallery-item" style="height: 260px;">
+              <img src="images/WhatsApp Image 2026-10-05 at 1.32.38 PM.jpeg" alt="Heavy Leg Press & Hack Squat" loading="lazy" style="object-position: center 25%;" />
+              <div class="slide-caption" style="opacity: 1; padding: 16px 14px;"><span>Heavy 45° Hack Squat & Leg Press</span></div>
+            </div>
+            <div class="gallery-item" style="height: 260px;">
+              <img src="images/gym-cardio.jpg" alt="Cardio & Stamina Suite" loading="lazy" style="object-position: center center;" />
+              <div class="slide-caption" style="opacity: 1; padding: 16px 14px;"><span>Cardio & Treadmill Suite</span></div>
+            </div>
+            <div class="gallery-item" style="height: 260px;">
+              <img src="images/WhatsApp Image 2026-10-03 at 4.06.27 PM (1).jpeg" alt="Chest & Cable Tower" loading="lazy" style="object-position: center center;" />
+              <div class="slide-caption" style="opacity: 1; padding: 16px 14px;"><span>Converging Chest & Isolation Towers</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <!-- DEDICATED OFFICIAL ONLINE PAYMENT SECTION -->
+      <section class="section" id="payment-methods-section" style="background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, rgba(10, 10, 10, 0.98) 100%); border-top: 1px solid rgba(212,175,55,0.2); border-bottom: 1px solid rgba(212,175,55,0.2);">
+        <div class="container reveal">
+          <div class="section-header" style="text-align: center; max-width: 780px; margin: 0 auto 36px;">
+            <span class="eyebrow" style="color: var(--gold-bright);">Official Fee Accounts • آن لائن ادائیگی</span>
+            <h2 class="section-heading" style="font-size: clamp(2rem, 3.2vw, 2.8rem);">TALHA GOLD GYM ONLINE PAYMENT</h2>
+            <p class="lead" style="margin-top: 10px;">
+              Pay your monthly gym fee, admission dues, or plan renewal securely through JazzCash, Easypaisa, Raast, or any Pakistani Bank Account.
+            </p>
+          </div>
+
+          <div class="payment-accounts-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1050px; margin: 0 auto;">
+            <!-- JazzCash Card -->
+            <div class="payment-account-tile" style="padding: 24px; border-radius: 16px; border: 1.5px solid rgba(255,87,34,0.4); background: linear-gradient(145deg, rgba(25,20,18,0.9), rgba(12,12,12,0.95));">
+              <div class="account-tile-header" style="margin-bottom: 14px;">
+                <span class="account-type-badge jazzcash" style="font-size: 0.85rem; padding: 4px 10px;">● JAZZCASH ACCOUNT</span>
+                <button type="button" class="btn-copy-account" data-copy="03703418826" style="padding: 5px 12px; font-size: 0.78rem;">Copy Number</button>
+              </div>
+              <strong style="font-size: 1.55rem; letter-spacing: 0.06em; color: #fff; display: block; margin: 8px 0 4px;">0370-3418826</strong>
+              <div style="color: rgba(245,245,245,0.85); font-size: 0.9rem; margin-bottom: 6px;">Account Title: <strong>TALHA GOLD GYM</strong></div>
+              <div style="font-size: 0.82rem; color: #aaa;">Alternate JazzCash: <strong>0322-3550180</strong></div>
+              <div style="margin-top: 18px; padding-top: 14px; border-top: 1px dashed rgba(255,87,34,0.3);">
+                <a href="https://wa.me/923703418826?text=Salam%20TALHA%20GOLD%20GYM!%20I%20want%20to%20send%20my%20JazzCash%20fee%20payment%20proof." target="_blank" rel="noopener" class="btn btn--secondary" style="width: 100%; justify-content: center; font-size: 0.82rem; padding: 9px;">Send JazzCash Screenshot</a>
+              </div>
+            </div>
+
+            <!-- Easypaisa Card -->
+            <div class="payment-account-tile" style="padding: 24px; border-radius: 16px; border: 1.5px solid rgba(0,200,83,0.4); background: linear-gradient(145deg, rgba(16,24,18,0.9), rgba(12,12,12,0.95));">
+              <div class="account-tile-header" style="margin-bottom: 14px;">
+                <span class="account-type-badge easypaisa" style="font-size: 0.85rem; padding: 4px 10px;">● EASYPAISA ACCOUNT</span>
+                <button type="button" class="btn-copy-account" data-copy="03703418826" style="padding: 5px 12px; font-size: 0.78rem;">Copy Number</button>
+              </div>
+              <strong style="font-size: 1.55rem; letter-spacing: 0.06em; color: #fff; display: block; margin: 8px 0 4px;">0370-3418826</strong>
+              <div style="color: rgba(245,245,245,0.85); font-size: 0.9rem; margin-bottom: 6px;">Account Title: <strong>TALHA GOLD GYM</strong></div>
+              <div style="font-size: 0.82rem; color: #aaa;">Alternate Easypaisa: <strong>0322-3550180</strong></div>
+              <div style="margin-top: 18px; padding-top: 14px; border-top: 1px dashed rgba(0,200,83,0.3);">
+                <a href="https://wa.me/923703418826?text=Salam%20TALHA%20GOLD%20GYM!%20I%20want%20to%20send%20my%20Easypaisa%20fee%20payment%20proof." target="_blank" rel="noopener" class="btn btn--secondary" style="width: 100%; justify-content: center; font-size: 0.82rem; padding: 9px;">Send Easypaisa Screenshot</a>
+              </div>
+            </div>
+
+            <!-- Raast / Bank Card -->
+            <div class="payment-account-tile" style="padding: 24px; border-radius: 16px; border: 1.5px solid rgba(212,175,55,0.45); background: linear-gradient(145deg, rgba(24,22,14,0.9), rgba(12,12,12,0.95));">
+              <div class="account-tile-header" style="margin-bottom: 14px;">
+                <span class="account-type-badge raast" style="font-size: 0.85rem; padding: 4px 10px;">● RAAST (ALL BANK APPS)</span>
+                <button type="button" class="btn-copy-account" data-copy="03703418826" style="padding: 5px 12px; font-size: 0.78rem;">Copy ID</button>
+              </div>
+              <strong style="font-size: 1.55rem; letter-spacing: 0.06em; color: #fff; display: block; margin: 8px 0 4px;">0370-3418826</strong>
+              <div style="color: rgba(245,245,245,0.85); font-size: 0.9rem; margin-bottom: 6px;">Raast ID / Title: <strong>TALHA GOLD GYM</strong></div>
+              <div style="font-size: 0.82rem; color: #aaa;">Supports Meezan, HBL, Alfalah, SadaPay, etc.</div>
+              <div style="margin-top: 18px; padding-top: 14px; border-top: 1px dashed rgba(212,175,55,0.3);">
+                <a href="https://wa.me/923703418826?text=Salam%20TALHA%20GOLD%20GYM!%20I%20transferred%20my%20gym%20fee%20via%20Raast/Bank.%20Here%20is%20my%20proof." target="_blank" rel="noopener" class="btn btn--secondary" style="width: 100%; justify-content: center; font-size: 0.82rem; padding: 9px;">Send Bank / Raast Proof</a>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 36px; text-align: center;">
+            <a href="#membership-request" class="btn btn--slip-hero" style="padding: 14px 28px; font-size: 0.95rem;">
+              ⚡ Fill Form & Generate Official Slip With Payment (سلپ بنائیں)
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="brand footer-brand">
+              <span class="brand-mark brand-mark--logo">
+                <img src="images/TGG-LOGO.jpg" alt="Talha Gold Gym Logo" class="brand-logo-img" />
+              </span>
+              <span class="brand-copy">
+                <strong>TALHA GOLD GYM</strong>
+                <span>Karachi • Strength • Discipline</span>
+              </span>
+            </div>
+            <p>Jama Hari Masjid, Kumbhar Wara Road, Lyari, Karachi, Pakistan</p>
+          </div>
+          <div>
+            <h3 style="font-size: 1.1rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-bright);">Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="membership.html">Membership</a></li>
+              <li><a href="membership.html#online-slip-section">Online Slip (آن لائن سلپ)</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="font-size: 1.1rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-bright);">Explore</h3>
+            <ul class="footer-links">
+              <li><a href="trainers.html">Trainers</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="login.html">Login</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="font-size: 1.1rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-bright);">Connect</h3>
+            <ul class="footer-social">
+              <li><a href="https://wa.me/923703418826" target="_blank" rel="noopener">WhatsApp (0370-3418826)</a></li>
+              <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+              <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© <span data-year></span> TALHA GOLD GYM. All Rights Reserved.</span>
+          <span>Official Membership & Admission Slip Portal • Lyari, Karachi</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/membership-page.js"></script>
+  </body>
+</html>

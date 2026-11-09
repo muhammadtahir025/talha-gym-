@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="TALHA GOLD GYM management dashboard frontend." />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Admin Dashboard | TALHA GOLD GYM</title>
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body class="admin-body">
+    <main class="auth-gate" id="admin-auth-gate" aria-live="polite">
+      <div class="auth-gate-panel">
+          <span class="brand-mark brand-mark--logo"><img src="images/TGG-LOGO.jpg" alt="Talha Gold Gym Logo" class="brand-logo-img" /></span>
+        <h1>VERIFYING ADMIN ACCESS</h1>
+        <p id="admin-auth-message">Checking your secure session...</p>
+      </div>
+    </main>
+    <div class="admin-shell" id="admin-shell" hidden>
+      <aside class="admin-sidebar" id="admin-sidebar" aria-label="Admin navigation">
+        <div class="sidebar-head">
+          <a class="admin-brand" href="index.html" aria-label="TALHA GOLD GYM home">
+            <span class="brand-mark brand-mark--logo"><img src="images/TGG-LOGO.jpg" alt="Talha Gold Gym Logo" class="brand-logo-img" /></span>
+            <span class="brand-copy"><strong>TALHA GOLD GYM</strong><small>MANAGEMENT</small></span>
+          </a>
+          <button class="icon-button sidebar-close" type="button" id="sidebar-close" aria-label="Close navigation">×</button>
+        </div>
+        <nav class="sidebar-nav" id="sidebar-nav"></nav>
+        <div class="sidebar-foot">
+          <span class="connection-dot" aria-hidden="true"></span>
+          <span>FRONTEND PREVIEW</span>
+        </div>
+      </aside>
+
+      <div class="sidebar-scrim" id="sidebar-scrim"></div>
+
+      <div class="admin-main">
+        <header class="topbar">
+          <div class="topbar-start">
+            <button class="icon-button menu-toggle" type="button" id="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+            <div class="breadcrumbs"><span>ADMIN</span><span class="crumb-divider">/</span><strong id="topbar-title">DASHBOARD</strong></div>
+          </div>
+          <div class="topbar-actions">
+            <div class="dropdown-wrap">
+              <button class="icon-button notification-button" id="notification-toggle" type="button" aria-label="Notifications" aria-expanded="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4" /></svg>
+                <span class="notification-badge" id="admin-unread-badge" hidden>0</span>
+              </button>
+              <div class="dropdown notification-dropdown" id="notification-dropdown" hidden>
+                <div class="notif-dropdown-header">
+                  <strong>NOTIFICATIONS</strong>
+                  <span class="notif-dropdown-count" id="notif-dropdown-count">0 UNREAD</span>
+                </div>
+                <div class="notif-dropdown-list" id="notif-dropdown-list">
+                  <p class="empty-note">No notifications yet.</p>
+                </div>
+                <div class="notif-dropdown-footer">
+                  <button type="button" class="admin-button small" id="notif-mark-all-read-btn">MARK ALL READ</button>
+                  <button type="button" class="admin-button small primary" id="notif-view-all-btn">VIEW ALL</button>
+                </div>
+              </div>
+            </div>
+            <div class="dropdown-wrap profile-wrap">
+              <button class="profile-trigger" id="profile-toggle" type="button" aria-expanded="false">
+                <span class="profile-avatar">T</span>
+                <span class="profile-copy"><strong id="admin-profile-name">ADMIN PROFILE</strong><small id="admin-profile-role">VERIFYING ROLE</small></span>
+                <span class="chevron" aria-hidden="true">⌄</span>
+              </button>
+              <div class="dropdown profile-dropdown" id="profile-dropdown" hidden>
+                <button type="button" data-action="profile">My Profile</button>
+                <button type="button" data-action="settings">Settings</button>
+                <a href="login.html" data-admin-logout>Logout</a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main class="admin-content" id="admin-content" tabindex="-1"></main>
+      </div>
+    </div>
+
+    <dialog class="admin-dialog" id="admin-dialog" aria-labelledby="dialog-title">
+      <form method="dialog" class="dialog-dismiss-form"><button class="icon-button dialog-close" aria-label="Close dialog">×</button></form>
+      <div class="dialog-body" id="dialog-body"></div>
+    </dialog>
+
+    <div class="toast-region" id="toast-region" role="status" aria-live="polite"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js" referrerpolicy="no-referrer"></script>
+    <script type="module" src="js/admin-app.js"></script>
+    <script type="module" src="js/admin-auth.js"></script>
+  </body>
+</html>

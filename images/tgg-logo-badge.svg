@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1c1a14"/>
+      <stop offset="70%" stop-color="#0a0907"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF2A3"/>
+      <stop offset="25%" stop-color="#E5C158"/>
+      <stop offset="50%" stop-color="#B8860B"/>
+      <stop offset="75%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#996515"/>
+    </linearGradient>
+    <linearGradient id="goldText" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="30%" stop-color="#FFE885"/>
+      <stop offset="70%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#8A6715"/>
+    </linearGradient>
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <circle cx="250" cy="250" r="240" fill="url(#bgGrad)"/>
+
+  <!-- Outer Beveled Rings -->
+  <circle cx="250" cy="250" r="236" fill="none" stroke="url(#goldGrad)" stroke-width="5" filter="url(#goldGlow)"/>
+  <circle cx="250" cy="250" r="226" fill="none" stroke="#2a2412" stroke-width="3"/>
+  <circle cx="250" cy="250" r="220" fill="none" stroke="url(#goldGrad)" stroke-width="2" stroke-dasharray="6,4"/>
+  <circle cx="250" cy="250" r="212" fill="none" stroke="url(#goldGrad)" stroke-width="3.5"/>
+
+  <!-- Ornate Crown at Top -->
+  <g transform="translate(250, 115) scale(0.68)" filter="url(#goldGlow)">
+    <path d="M-60,35 L-75,-15 L-30,5 L0,-38 L30,5 L75,-15 L60,35 Z" fill="url(#goldGrad)"/>
+    <circle cx="-75" cy="-20" r="5" fill="#FFF2A3"/>
+    <circle cx="0" cy="-44" r="6.5" fill="#FFF2A3"/>
+    <circle cx="75" cy="-20" r="5" fill="#FFF2A3"/>
+  </g>
+
+  <!-- Heavy Barbell Emblem -->
+  <g transform="translate(250, 220)" filter="url(#goldGlow)">
+    <!-- Central Bar -->
+    <rect x="-140" y="-7" width="280" height="14" rx="7" fill="url(#goldGrad)"/>
+    <rect x="-70" y="-8.5" width="140" height="17" rx="4" fill="url(#goldGrad)" stroke="#1a1405" stroke-width="1.5"/>
+
+    <!-- Left Weight Plates -->
+    <rect x="-148" y="-48" width="16" height="96" rx="6" fill="url(#goldGrad)"/>
+    <rect x="-170" y="-58" width="18" height="116" rx="7" fill="url(#goldGrad)" stroke="#221800" stroke-width="2"/>
+    <rect x="-186" y="-52" width="12" height="104" rx="5" fill="url(#goldGrad)"/>
+    <rect x="-194" y="-28" width="6" height="56" rx="3" fill="url(#goldGrad)"/>
+
+    <!-- Right Weight Plates -->
+    <rect x="132" y="-48" width="16" height="96" rx="6" fill="url(#goldGrad)"/>
+    <rect x="152" y="-58" width="18" height="116" rx="7" fill="url(#goldGrad)" stroke="#221800" stroke-width="2"/>
+    <rect x="174" y="-52" width="12" height="104" rx="5" fill="url(#goldGrad)"/>
+    <rect x="188" y="-28" width="6" height="56" rx="3" fill="url(#goldGrad)"/>
+
+    <!-- Center Gym Logo Emblem -->
+    <circle cx="0" cy="0" r="32" fill="#0c0b08" stroke="url(#goldGrad)" stroke-width="3"/>
+    <text x="0" y="8" font-family="'Impact', 'Arial Black', sans-serif" font-size="20" font-weight="900" fill="url(#goldText)" text-anchor="middle" letter-spacing="2">TGG</text>
+  </g>
+
+  <!-- Laurel Leaves (Left and Right) -->
+  <g fill="url(#goldGrad)" opacity="0.9">
+    <!-- Left Branch -->
+    <path d="M100,165 C85,190 75,230 82,270 C88,305 105,335 130,355 C124,345 112,320 110,290 C108,255 116,215 130,185 Z"/>
+    <!-- Right Branch -->
+    <path d="M400,165 C415,190 425,230 418,270 C412,305 395,335 370,355 C376,345 388,320 390,290 C392,255 384,215 370,185 Z"/>
+  </g>
+
+  <!-- Banner for TALHA GOLD GYM -->
+  <g transform="translate(0, 310)">
+    <path d="M 60,35 Q 250,75 440,35 L 440,85 Q 250,125 60,85 Z" fill="#080705" stroke="url(#goldGrad)" stroke-width="3"/>
+    <text x="250" y="76" font-family="'Montserrat', 'Arial Black', sans-serif" font-size="34" font-weight="900" fill="url(#goldText)" text-anchor="middle" letter-spacing="5">TALHA GOLD GYM</text>
+  </g>
+
+  <!-- Subtitle Text -->
+  <text x="250" y="425" font-family="'Arial', sans-serif" font-size="14" font-weight="800" fill="url(#goldGrad)" text-anchor="middle" letter-spacing="5">EST. 2023 • PREMIER FITNESS CLUB • LYARI</text>
+  <circle cx="105" cy="421" r="3" fill="url(#goldGrad)"/>
+  <circle cx="395" cy="421" r="3" fill="url(#goldGrad)"/>
+</svg>

@@ -1,0 +1,140 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function hasRole(role) {
+      return signedIn()
+        && request.auth.token.role == role
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == role
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.status == 'ACTIVE';
+    }
+
+    function isMemberStaff() {
+      return hasRole('SUPER_ADMIN')
+        || hasRole('MANAGER')
+        || hasRole('RECEPTIONIST');
+    }
+
+    function isFinancialStaff() {
+      return hasRole('SUPER_ADMIN') || hasRole('MANAGER');
+    }
+
+    function linkedMemberId() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.memberId;
+    }
+
+    match /users/{uid} {
+      allow get: if signedIn() && (request.auth.uid == uid || hasRole('SUPER_ADMIN'));
+      allow list: if hasRole('SUPER_ADMIN');
+      allow create, update, delete: if false;
+    }
+
+    match /members/{memberId} {
+      allow get, list: if isMemberStaff()
+        || (hasRole('TRAINER') && resource.data.trainerUid == request.auth.uid)
+        || (hasRole('MEMBER') && resource.data.authUid == request.auth.uid);
+      allow create, update, delete: if false;
+    }
+
+    match /membership_plans/{planId} {
+      allow get, list: if isMemberStaff() || resource.data.status == 'ACTIVE';
+      allow create, update, delete: if false;
+    }
+
+    match /payments/{paymentId} {
+      allow get, list: if isMemberStaff()
+        || (hasRole('MEMBER') && resource.data.memberId == linkedMemberId());
+      allow create, update, delete: if false;
+    }
+
+    match /payment_receipts/{receiptId} {
+      allow get, list: if isMemberStaff()
+        || (hasRole('MEMBER') && resource.data.memberId == linkedMemberId());
+      allow create, update, delete: if false;
+    }
+
+    match /membership_history/{membershipId} {
+      allow get, list: if isMemberStaff()
+        || (hasRole('TRAINER') && get(/databases/$(database)/documents/members/$(resource.data.memberId)).data.trainerUid == request.auth.uid)
+        || (hasRole('MEMBER') && resource.data.memberId == linkedMemberId());
+      allow create, update, delete: if false;
+    }
+
+    match /activity_logs/{logId} {
+      allow get, list: if hasRole('SUPER_ADMIN') || hasRole('MANAGER');
+      allow create, update, delete: if false;
+    }
+
+    match /expenses/{expenseId} {
+      allow get, list: if isFinancialStaff();
+      allow create, update, delete: if false;
+    }
+
+    match /attendance/{attendanceId} {
+      allow get, list: if isMemberStaff()
+        || (hasRole('TRAINER') && resource.data.trainerUid == request.auth.uid)
+        || (hasRole('MEMBER') && resource.data.memberId == linkedMemberId());
+      allow create, update, delete: if false;
+    }
+
+    match /workout_plans/{planId} {
+      allow get, list: if isMemberStaff()
+        || (hasRole('TRAINER') && resource.data.trainerUid == request.auth.uid)
+        || (hasRole('MEMBER') && resource.data.memberId == linkedMemberId());
+      allow create, update, delete: if false;
+    }
+
+    match /diet_plans/{planId} {
+      allow get, list: if isMemberStaff()
+        || (hasRole('TRAINER') && resource.data.trainerUid == request.auth.uid)
+        || (hasRole('MEMBER') && resource.data.memberId == linkedMemberId());
+      allow create, update, delete: if false;
+    }
+
+    match /progress/{progressId} {
+      allow get, list: if isMemberStaff()
+        || (hasRole('TRAINER') && resource.data.trainerUid == request.auth.uid)
+        || (hasRole('MEMBER') && resource.data.memberId == linkedMemberId());
+      allow create, update, delete: if false;
+    }
+
+    match /trainers/{trainerId} {
+      allow get, list: if isMemberStaff();
+      allow create, update, delete: if false;
+    }
+
+    match /time_slots/{timeSlotId} {
+      allow get, list: if isMemberStaff();
+      allow create, update, delete: if false;
+    }
+
+    match /notifications/{notificationId} {
+      allow get, list: if isMemberStaff()
+        || (hasRole('TRAINER') && (resource.data.trainerUid == request.auth.uid || resource.data.createdBy == request.auth.uid))
+        || (hasRole('MEMBER') && (resource.data.recipientUserId == request.auth.uid || resource.data.recipientMemberId == linkedMemberId()));
+      allow create, update, delete: if false;
+    }
+
+    match /notification_settings/{docId} {
+      allow get, list: if signedIn();
+      allow create, update, delete: if hasRole('SUPER_ADMIN') || hasRole('MANAGER');
+    }
+
+    match /whatsapp_templates/{templateId} {
+      allow get, list: if isMemberStaff() || hasRole('TRAINER');
+      allow create, update, delete: if hasRole('SUPER_ADMIN') || hasRole('MANAGER');
+    }
+
+    match /gallery/{galleryId} {
+      allow get, list: if isMemberStaff() || resource.data.status == 'ACTIVE';
+      allow create, update, delete: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
